@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewsanpham"
+        app:cardCornerRadius="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/iconnew"
+                android:layout_gravity="top|right"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
+            </ImageView>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:id="@+id/imageviewsanpham"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
+                </ImageView>
+                <TextView
+                    android:gravity="center"
+                    android:textColor="#1A1616"
+                    android:text="Tên sản phẩm"
+                    android:textSize="20sp"
+                    android:id="@+id/textviewtensanpham"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/textviewgiasanpham"
+                    android:textColor="#f02"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
