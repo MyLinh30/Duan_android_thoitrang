@@ -6,19 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MixiDressActivity">
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:background="#939191"
         android:titleTextColor="#FAF6F6"
         android:title="Mixi Dress"
         android:id="@+id/toolbarmixidress"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
     <ListView
         android:id="@+id/listviewmixidress"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </ListView>
-
 </LinearLayout>

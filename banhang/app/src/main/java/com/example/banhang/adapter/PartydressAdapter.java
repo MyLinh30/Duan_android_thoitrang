@@ -16,23 +16,24 @@ import com.squareup.picasso.Picasso;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class MixidressAdapter extends BaseAdapter {
+public class PartydressAdapter extends BaseAdapter {
+
     Context context;
-    ArrayList<Sanpham> arraymixidress;
+    ArrayList<Sanpham> arraypartydress;
 
-    public MixidressAdapter(Context context, ArrayList<Sanpham> arraymixidress) {
+    public PartydressAdapter(Context context, ArrayList<Sanpham> arraypartydress) {
         this.context = context;
-        this.arraymixidress = arraymixidress;
+        this.arraypartydress = arraypartydress;
     }
-
+    // get so dong trong bang ve
     @Override
     public int getCount() {
-        return arraymixidress.size();
+        return arraypartydress.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return arraymixidress.get(position);
+        return arraypartydress.get(position);
     }
 
     @Override
@@ -40,10 +41,12 @@ public class MixidressAdapter extends BaseAdapter {
         return position;
     }
     public  class  ViewHolder{
-        public TextView txttenmixidress,txtgiamixidress,txtmotamixi;
-        public ImageView imgmixidress;
+        public TextView txttenpartydress,txtgiapartydress,txtmotapartydress;
+        public ImageView imgpartydress;
     }
-
+    // khi run lan dau thì view sẽ là null thì sẽ ánh xạ id
+    // khi run lan hai không cần gán id lần nữa tại vi dã có sãn chi can getTag lại
+    // lam nhu vay sẽ nhanh hơn
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder =null;
@@ -52,27 +55,27 @@ public class MixidressAdapter extends BaseAdapter {
             viewHolder =new ViewHolder();
             LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.dong_mixidress,null);
-            viewHolder.txttenmixidress=(TextView) convertView.findViewById(R.id.textviewtenmixidress);
-            viewHolder.txtgiamixidress=(TextView) convertView.findViewById(R.id.textviewgiamixidress);
-            viewHolder.txtmotamixi=(TextView) convertView.findViewById(R.id.textviewmotamixidress);
-            viewHolder.imgmixidress = (ImageView) convertView.findViewById(R.id.imageviewmixidress);
+            viewHolder.txttenpartydress=(TextView) convertView.findViewById(R.id.textviewtenpartydress);
+            viewHolder.txtgiapartydress=(TextView) convertView.findViewById(R.id.textviewgiapartydress);
+            viewHolder.txtmotapartydress=(TextView) convertView.findViewById(R.id.textviewmotapartydress);
+            viewHolder.imgpartydress = (ImageView) convertView.findViewById(R.id.imageviewpartydress);
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
 
         }
         Sanpham sanpham = (Sanpham) getItem(position);
-        viewHolder.txttenmixidress.setText(sanpham.getName());
+        viewHolder.txttenpartydress.setText(sanpham.getName());
         DecimalFormat decimalFormat =new DecimalFormat("###,###,###");
-        viewHolder.txtgiamixidress.setText("Giá: "+decimalFormat.format(sanpham.getPrice())+ " Đ");
-        viewHolder.txtmotamixi.setText(sanpham.getDesc());
-        viewHolder.txtmotamixi.setMaxLines(2);
-        viewHolder.txtmotamixi.setEllipsize(TextUtils.TruncateAt.END);
-        viewHolder.txtmotamixi.setText(sanpham.getDesc());
+        viewHolder.txtgiapartydress.setText("Giá: "+decimalFormat.format(sanpham.getPrice())+ " Đ");
+        viewHolder.txtmotapartydress.setText(sanpham.getDesc());
+        viewHolder.txtmotapartydress.setMaxLines(2);
+        viewHolder.txtmotapartydress.setEllipsize(TextUtils.TruncateAt.END);
+        viewHolder.txtmotapartydress.setText(sanpham.getDesc());
         Picasso.with(context).load(sanpham.getLinkhinhanh())
                 .placeholder(R.drawable.noimage)
                 .error(R.drawable.error)
-                .into(viewHolder.imgmixidress);
+                .into(viewHolder.imgpartydress);
         return convertView;
     }
 }
